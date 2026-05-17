@@ -1,0 +1,4 @@
+langgraph==1.1.6
+langchain-ollama==1.0.1
+ddgs==9.14.2
+pydantic==2.12.5
