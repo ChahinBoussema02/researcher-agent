@@ -10,8 +10,8 @@ logger = logging.getLogger(__name__)
 llm = ChatOllama(model=MODEL_NAME, temperature=TEMPERATURE, base_url=OLLAMA_BASE_URL)
 
 def planner(state: AgentState) -> dict:
-    logger.info(f"Planner started | query: {state['original_query']}")
-    query = state['original_query']
+    query = state['original_query'] if state["iteration_count"] == 0 else state['refined_query']
+    logger.info(f"Planner started | iteration: {state['iteration_count']} | query: {query}")
     prompt = f"""Decompose this research question into exactly 3 focused search queries.
     Return only a numbered list, nothing else.
     Question: {query}"""
