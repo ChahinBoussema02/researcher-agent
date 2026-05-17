@@ -11,3 +11,4 @@ class AgentState(TypedDict):
     refined_query: str
     iteration_count: int
     approved: bool
+    confidence: float
