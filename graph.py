@@ -7,8 +7,6 @@ from nodes.analyst import analyst
 from nodes.critic import critic
 
 def route_critic(state: AgentState) -> str:
-    print("DEBUG state keys:", state.keys())
-    print("DEBUG approved:", state.get("approved"))
     if state.get("approved", False):
         return "end"
     return "planner"
